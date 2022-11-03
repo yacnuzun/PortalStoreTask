@@ -16,4 +16,5 @@ namespace Entities.Concrete
         public int CategoryId { get; set; }
 
     }
+
 }
