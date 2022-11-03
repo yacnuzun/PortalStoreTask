@@ -31,8 +31,8 @@ namespace Business.Concrete
 
             var result = _productDal.Delete(new Product { Id = id });
             if (result)
-                return new SuccessResult("Ürün Eklendi.");
-            return new ErrorResult("Bir şey oldu :(");
+                return new SuccessResult("Ürün Silindi.");
+            return new ErrorResult("Bir şey oldu");
 
         }
 
@@ -51,7 +51,7 @@ namespace Business.Concrete
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new SuccessResult("Ürün Eklendi.");
+            return new SuccessResult("Ürün Güncellendi.");
         }
     }
 }
