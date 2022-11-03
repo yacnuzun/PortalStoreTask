@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
             _addressService = addressService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallforaddress")]
         public IActionResult GetAll()
         {
             var result = _addressService.GetAll();
             return Ok(result.Data);
         }
-        [HttpGet("get")]
+        [HttpGet("getforaddress")]
         public IActionResult Get(int id)
         {
             var result = _addressService.Get(id);
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpPost("add")]
+        [HttpPost("addforaddress")]
         public IActionResult Add(Address address)
         {
             var result = _addressService.Add(address);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updateforaddress")]
         public IActionResult Update(Address address)
         {
             var result = _addressService.Update(address);
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpGet("delete")]
+        [HttpGet("deleteforaddress")]
         public IActionResult Delete(int id)
         {
             var result = _addressService.Delete(id);

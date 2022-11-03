@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
             _categoryService = categoryService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallforcategories")]
         public IActionResult GetAll()
         {
             var result = _categoryService.GetAll();
             return Ok(result.Data);
         }
-        [HttpGet("get")]
+        [HttpGet("getforcategories")]
         public IActionResult Get(int id)
         {
             var result = _categoryService.Get(id);
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpPost("add")]
+        [HttpPost("addforcategories")]
         public IActionResult Add(Category category)
         {
             var result = _categoryService.Add(category);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updateforcategories")]
         public IActionResult Update(Category category)
         {
             var result = _categoryService.Update(category);
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpGet("delete")]
+        [HttpGet("deleteforcategories")]
         public IActionResult Delete(int id)
         {
             var result = _categoryService.Delete(id);

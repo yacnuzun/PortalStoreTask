@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallfororder")]
         public IActionResult GetAll()
         {
             var result = _orderService.GetAll();
             return Ok(result.Data);
         }
-        [HttpGet("get")]
+        [HttpGet("getfororder")]
         public IActionResult Get(int id)
         {
             var result = _orderService.Get(id);
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpPost("add")]
+        [HttpPost("addfororder")]
         public IActionResult Add(Order order)
         {
             var result = _orderService.Add(order);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updatefororder")]
         public IActionResult Update(Order order)
         {
             var result = _orderService.Update(order);
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpGet("delete")]
+        [HttpGet("deletefororder")]
         public IActionResult Delete(int id)
         {
             var result = _orderService.Delete(id);

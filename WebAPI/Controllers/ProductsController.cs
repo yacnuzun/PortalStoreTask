@@ -15,13 +15,13 @@ namespace WebAPI.Controllers
             _productService = productService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallforproduct")]
         public IActionResult GetAll()
         {
             var result = _productService.GetAll();
             return Ok(result.Data);
         }
-        [HttpGet("get")]
+        [HttpGet("getforproduct")]
         public IActionResult Get(int id)
         {
             var result = _productService.Get(id);
@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpPost("add")]
+        [HttpPost("addforproduct")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updateforproduct")]
         public IActionResult Update(Product product)
         {
             var result = _productService.Update(product);
@@ -52,7 +52,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpGet("delete")]
+        [HttpGet("deleteforproduct")]
         public IActionResult Delete(int id)
         {
             var result = _productService.Delete(id);

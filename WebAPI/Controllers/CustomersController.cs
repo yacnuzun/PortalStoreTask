@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
             _customerService = customerService;
         }
 
-        [HttpGet("getall")]
+        [HttpGet("getallforcustomer")]
         public IActionResult GetAll()
         {
             var result = _customerService.GetAll();
             return Ok(result.Data);
         }
-        [HttpGet("get")]
+        [HttpGet("getforcustomer")]
         public IActionResult Get(int id)
         {
             var result = _customerService.Get(id);
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Data);
         }
-        [HttpPost("add")]
+        [HttpPost("addforcustomer")]
         public IActionResult Add(Customer customer)
         {
             var result = _customerService.Add(customer);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return Ok(result.Message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updateforcustomer")]
         public IActionResult Update(Customer customer)
         {
             var result = _customerService.Update(customer);
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpGet("delete")]
+        [HttpGet("deleteforcustomer")]
         public IActionResult Delete(int id)
         {
             var result = _customerService.Delete(id);
