@@ -17,9 +17,10 @@ namespace Business.Concrete
             _ıdentifyCheckService = ıdentifyCheckService;
         }
 
-        public IResult Add(Customer customer)
+        public async Task<IResult> Add(Customer customer)
         {
-            var check = _ıdentifyCheckService.IsIdentifyCheck(Convert.ToInt32(customer.TCID), customer.FirstName, customer.LastName, customer.BirthDate);
+            var check = await _ıdentifyCheckService.IsIdentifyCheck(customer.TCID, customer.FirstName, customer.LastName, customer.BirthDate);
+            
             if (check==true)
             {
                 _customerDal.Add(customer);

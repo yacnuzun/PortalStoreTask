@@ -10,24 +10,17 @@ using static Azure.Core.HttpHeader;
 namespace Core.Utilities.SoapService.Concrete
 {
     public class IdentifyCheckManager:IIdentifyCheckService
-    {
+    {    
 
-        KPSPublicSoapClient _client;
+        
 
-        public IdentifyCheckManager(KPSPublicSoapClient client)
+        public async Task<bool> IsIdentifyCheck(long Identify,string firstName,string lastName,DateTime birthDate)
         {
-            _client = client;
-        }
+            Service.KPSPublicSoapClient _client = new Service.KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap12);
+            var result= await _client.TCKimlikNoDogrulaAsync(Identify, firstName, lastName, birthDate.Year);
+            var responce=result.Body.TCKimlikNoDogrulaResult;
 
-        public bool IsIdentifyCheck(int Identify,string firstName,string lastName,DateTime birthDate)
-        {
-
-            var result= _client.TCKimlikNoDogrulaAsync(Identify, firstName, lastName, Convert.ToInt32(birthDate));
-            if (result.IsCompletedSuccessfully == true)
-            {
-                return true;
-            }
-            return false;
+            return responce;
         }
     }
 }

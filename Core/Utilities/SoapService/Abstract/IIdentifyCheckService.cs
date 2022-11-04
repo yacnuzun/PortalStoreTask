@@ -9,6 +9,6 @@ namespace Core.Utilities.SoapService.Abstract
 {
     public interface IIdentifyCheckService
     {
-        bool IsIdentifyCheck(int Identify, string firstName, string lastName, DateTime birthDate);
+        public Task<bool> IsIdentifyCheck(long Identify, string firstName, string lastName, DateTime birthDate);
     }
 }

@@ -30,9 +30,9 @@ namespace WebAPI.Controllers
             return Ok(result.Data);
         }
         [HttpPost("addforcustomer")]
-        public IActionResult Add(Customer customer)
+        public async Task<IActionResult> Add(Customer customer)
         {
-            var result = _customerService.Add(customer);
+            var result = await _customerService.Add(customer);
             if (!result.Success)
             {
                 return BadRequest(result.Message);

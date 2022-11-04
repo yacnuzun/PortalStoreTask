@@ -7,7 +7,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Customer>> GetAll();
         IDataResult<Customer> Get(int id);
-        IResult Add(Customer customer);
+        public Task<IResult> Add(Customer customer);
         IResult Update(Customer customer);
         IResult Delete(int id);
 
